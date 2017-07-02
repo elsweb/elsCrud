@@ -18,6 +18,7 @@ $stmt= $Conn->query($query); //Prepara para execução do script no banco de dad
 $resultado = $stmt->fetch(PDO::FETCH_ASSOC); //Lista um array associativo [REGISTRO ÚNICO]
 
 //$resultado = $stmt->fetchAll(PDO::FETCH_ASSOC); //Lista um array associativo [MULTIPLOS REGISTROS]
+//$resultado = $stmt->fetchAll(PDO::FETCH_CLASS); //Lista como objetos
 
 echo'<pre>';
 print_r($resultado);
