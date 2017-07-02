@@ -9,10 +9,12 @@ $dbsa = 'estudo_pdocomphp';
 try {
 $Conn = new  \PDO("mysql:host={$host};dbname={$dbsa}","{$user}","{$pass}");//String DSN config
 
-$query = "SELECT * FROM clientes";
+//$query = "SELECT * FROM clientes";
+$query = "INSERT INTO clientes (nome, email) VALUES ('Emanuel','atendimento@elsweb.com.br')";
+$resultado = $Conn->exec($query);
 
-$stmt= $Conn->query($query); //Prepara para execução do script no banco de dados.
-$resultado = $stmt->fetch(PDO::FETCH_ASSOC); //Lista um array associativo [REGISTRO ÚNICO]
+//$stmt= $Conn->query($query); //Prepara para execução do script no banco de dados.
+//$resultado = $stmt->fetch(PDO::FETCH_ASSOC); //Lista um array associativo [REGISTRO ÚNICO]
 //$resultado = $stmt->fetchAll(PDO::FETCH_ASSOC); //Lista um array associativo [MULTIPLOS REGISTROS]
 
 echo'<pre>';
