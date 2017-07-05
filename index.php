@@ -14,7 +14,7 @@ $query = "SELECT * FROM clientes WHERE id=:id";
 //$query = "INSERT INTO clientes (nome, email) VALUES ('Emanuel','atendimento@elsweb.com.br')";
 //$resultado = $Conn->exec($query); // Executa a query no banco de dados
 
-$stmt= $Conn->prepare($query);
+$stmt= $Conn->prepare($query); //Preparar Statement
 $stmt->bindValue(":id",$_GET['id'],PDO::PARAM_INT); //Proteção contra SQL injection
 $stmt->execute();
 
