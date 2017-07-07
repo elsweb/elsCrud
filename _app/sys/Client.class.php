@@ -11,8 +11,14 @@ class Client {
 		$this->db = $db;
 	}
 
-	public function Read(){
-
+	public function Read($order = null){
+		if($order):
+			$query = "SELECT * from clientes ORDER BY {$order}";
+		else:
+			$query = "SELECT * from clientes";
+		endif;		
+		$stmt = $this->db->query($query);
+		return $stmt->fetchAll(\PDO::FETCH_ASSOC);
 	}
 	public function Create(){
 		$query = "INSERT INTO clientes(nome,email) VALUES (:nome,:email)";

@@ -19,10 +19,14 @@ $Conn = new  \PDO("mysql:host={$host};dbname={$dbsa}","{$user}","{$pass}");//Str
 
 $Client = new Client($Conn);
 $Client->setNameClient('Antonio')
-       ->setEmailClient('developer@elsweb.com.br');
+->setEmailClient('developer@elsweb.com.br');
 
-$resultado = $Client->Create($Client);
-echo $resultado;
+//$resultado = $Client->Create($Client);
+//echo $resultado;
+
+foreach($Client->Read('id desc') as $c):
+	echo $c['nome'].'<br>';
+endforeach;
 
 
 //echo'<pre>';
