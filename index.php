@@ -32,6 +32,10 @@ $Client->setNameClient('Emanuel L.D. Silva')
 $Client->Update(9);
 */
 
+/*
+$Client->Delete(9);
+*/
+
 $array = $Client->Read('id desc'); 
 
 foreach($array as $c):

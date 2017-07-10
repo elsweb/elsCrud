@@ -40,10 +40,15 @@ class Client {
 			return true;
 		endif;
 	}
-	public function Delete(){
-
+	public function Delete($id){
+		$query = "DELETE FROM clientes WHERE id=:id";
+		$stmt = $this->db->prepare($query);
+		$stmt->bindValue(":id", $id);
+		$resultado = $stmt->execute();
+		if($resultado):
+			return true;
+		endif;
 	}
-
 	
 	//Colocar (int) para forçar inteiro
 	public function setIdClient($idClient){
