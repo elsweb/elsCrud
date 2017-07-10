@@ -17,15 +17,25 @@ $Conn = new  \PDO("mysql:host={$host};dbname={$dbsa}","{$user}","{$pass}");//Str
 	</div>");
 }
 
+
 $Client = new Client($Conn);
+
+/*
 $Client->setNameClient('Antonio')
 ->setEmailClient('developer@elsweb.com.br');
+$Client->Create($Client);
+*/
 
-//$resultado = $Client->Create($Client);
-//echo $resultado;
+/*
+$Client->setNameClient('Emanuel L.D. Silva')
+->setEmailClient('developer@elsweb.com.br');
+$Client->Update(9);
+*/
 
-foreach($Client->Read('id desc') as $c):
-	echo $c['nome'].'<br>';
+$array = $Client->Read('id desc'); 
+
+foreach($array as $c):
+	echo $c['id'].' Nome '.$c['nome'].' E-mail.: '.$c['email'].'<br>';
 endforeach;
 
 

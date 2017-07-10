@@ -29,8 +29,16 @@ class Client {
 			return true;
 		endif;
 	}
-	public function Update(){
-
+	public function Update($id){
+		$query = "UPDATE clientes SET nome = :nome, email = :email WHERE id = :id";
+		$stmt = $this->db->prepare($query);
+		$stmt->bindValue(':nome',$this->getNameClient());
+		$stmt->bindValue(':email',$this->getEmailClient());
+		$stmt->bindValue(':id',$id);
+		$resultado = $stmt->execute();
+		if($resultado):
+			return true;
+		endif;
 	}
 	public function Delete(){
 
