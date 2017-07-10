@@ -11,6 +11,13 @@ class Client {
 		$this->db = $db;
 	}
 
+	public function FindOut($id){
+		$query = "SELECT * FROM clientes WHERE id=:id";
+		$stmt = $this->db->prepare($query);
+		$stmt->bindValue(":id",$id);
+	    $stmt->execute();
+	    return $stmt->fetch(\PDO::FETCH_ASSOC);
+	}
 	public function Read($order = null){
 		if($order):
 			$query = "SELECT * from clientes ORDER BY {$order}";

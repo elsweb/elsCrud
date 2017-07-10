@@ -20,28 +20,31 @@ $Conn = new  \PDO("mysql:host={$host};dbname={$dbsa}","{$user}","{$pass}");//Str
 
 $Client = new Client($Conn);
 
-/*
+/* CREATE
 $Client->setNameClient('Antonio')
 ->setEmailClient('developer@elsweb.com.br');
 $Client->Create($Client);
 */
 
-/*
+/* UPDATE
 $Client->setNameClient('Emanuel L.D. Silva')
 ->setEmailClient('developer@elsweb.com.br');
 $Client->Update(9);
 */
 
-/*
+/* DELETE
 $Client->Delete(9);
 */
 
+/* READ
 $array = $Client->Read('id desc'); 
-
 foreach($array as $c):
 	echo $c['id'].' Nome '.$c['nome'].' E-mail.: '.$c['email'].'<br>';
 endforeach;
+*/
 
+$cli = $Client->FindOut(10);
+echo $cli['nome'];
 
 //echo'<pre>';
 //print_r($Client);
