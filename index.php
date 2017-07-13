@@ -1,10 +1,12 @@
 <?php
-require_once('_app/sys/Client.class.php');
+require_once('_app/interface/EntidadeInterface.class.php');
+require_once('_app/class/Client.class.php');
+require_once('_app/sys/ServiceDb.class.php');
 
 header('Content-Type: text/html; charset=utf-8');
 
 $host = 'localhost';
-$user = 'lab';
+$user = 'elscode';
 $pass = '';
 $dbsa = 'estudo_pdocomphp';
 
@@ -18,16 +20,19 @@ $Conn = new  \PDO("mysql:host={$host};dbname={$dbsa}","{$user}","{$pass}");//Str
 }
 
 
-$Client = new Client($Conn);
+$Client = new Client();
 
-/* CREATE
-$Client->setNameClient('Antonio')
-->setEmailClient('developer@elsweb.com.br');
-$Client->Create($Client);
-*/
+
+$Client->setNameClient('Maria Del San Thiago')
+       ->setEmailClient('maria@delthiago.com.br');
+
+$ServiceDb = new ServiceDb($Conn, $Client);
+
+/*CREATE
+//$ServiceDb->Create();
 
 /* UPDATE
-$Client->setNameClient('Emanuel L.D. Silva')
+$ServiceDb->setNameClient('Emanuel L.D. Silva')
 ->setEmailClient('developer@elsweb.com.br');
 $Client->Update(9);
 */
@@ -36,16 +41,8 @@ $Client->Update(9);
 $Client->Delete(9);
 */
 
-/* READ
-$array = $Client->Read('id desc'); 
+/*READ*/
+$array = $ServiceDb->Read('id desc'); 
 foreach($array as $c):
 	echo $c['id'].' Nome '.$c['nome'].' E-mail.: '.$c['email'].'<br>';
 endforeach;
-*/
-
-$cli = $Client->FindOut(10);
-echo $cli['nome'];
-
-//echo'<pre>';
-//print_r($Client);
-//echo'</pre>';
