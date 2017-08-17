@@ -1,34 +1,22 @@
 <?php
+require_once('_app/Config.inc.php');
+require_once('_app/Conn/Conn.class.php');
 require_once('_app/interface/EntidadeInterface.class.php');
 require_once('_app/class/Client.class.php');
 require_once('_app/sys/ServiceDb.class.php');
 
 header('Content-Type: text/html; charset=utf-8');
 
-$host = 'localhost';
-$user = 'elscode';
-$pass = '';
-$dbsa = 'estudo_pdocomphp';
-
-try {
-$Conn = new  \PDO("mysql:host={$host};dbname={$dbsa}","{$user}","{$pass}");//String DSN config
-}catch(\PDOException $e){
-	die ("<div style='padding:20px; background:black; color:red; width:200px; height:auto; margin: 0 auto; text-align:center;'>
-		<span>Não foi possivel estabelezer conexão com bando de dados <b>{$dbsa}</b></span><hr>
-		<span>Erro : <b>{$e->getCode()}</b></span>
-	</div>");
-}
-
+$Conn = new Conn();
+$conexao= $Conn->getConn();
 
 $Client = new Client();
+$ServiceDb = new ServiceDb($conexao, $Client);
 
-
-$Client->setNameClient('Maria Del San Thiago')
-       ->setEmailClient('maria@delthiago.com.br');
-
-$ServiceDb = new ServiceDb($Conn, $Client);
 
 /*CREATE
+//$Client->setNameClient('Maria Del San Thiago')
+//       ->setEmailClient('maria@delthiago.com.br');
 //$ServiceDb->Create();
 
 /* UPDATE
