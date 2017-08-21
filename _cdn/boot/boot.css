@@ -1,0 +1,159 @@
+/*
+ Author: Emanuel L.D. Silva
+ Author URI: http://elsweb.com.br/
+ Year 2016
+ Version: 1.0
+ License: copyright all rights reserved
+ Text Domain: elsweb
+ */
+/*GLOBAL SETTINGS*/
+body {
+  font-family: 'Roboto', sans-serif !important;
+}
+/*RESET SETTINGS*/
+ul {
+  list-style-type: none !important;
+}
+/*Color Wireframe*/
+.bg-white {
+  background: #FFFFFF !important;
+}
+.bg-black {
+  background: #000000 !important;
+}
+.bg-gray {
+  background: #808080 !important;
+}
+.cl-white {
+  color: #FFFFFF !important;
+}
+.cl-black {
+  color: #000000 !important;
+}
+.cl-gray {
+  color: #808080 !important;
+}
+/*Color Theme*/
+.bg-main-lights {
+  background: #F79338 !important;
+}
+.bg-main {
+  background: #F57D00 !important;
+}
+.bg-main-shadow {
+  background: #C15F28 !important;
+}
+.bg-seco-lights {
+  background: #23a7d4 !important;
+}
+.bg-seco {
+  background: #067499 !important;
+}
+.bg-seco-shadow {
+  background: #044960 !important;
+}
+.bg-terc {
+  background: #FAb771 !important;
+}
+/*[HELPERS] - default CSS*/
+.zeromag {
+  margin: 0 !important;
+}
+.zeropad {
+  padding: 0 !important;
+}
+/*[HELPERS] - grid*/
+.xs-content {
+  max-width: 576px !important;
+}
+.sm-content {
+  max-width: 768px !important;
+}
+.md-content {
+  max-width: 992px !important;
+}
+.lg-content {
+  max-width: 1200px !important;
+}
+/*[HELPERS] - trigger*/
+.rtn .trigger {
+  color: #FFFFFF;
+  margin: 5px 0;
+  padding: 15px 10px 15px 50px;
+  border-radius: 2px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  -webkit-box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.5);
+}
+.rtn .info {
+  background-color: #5bc0de;
+  background-image: url('img/trigger/info.png');
+}
+.rtn .success {
+  background-color: #5cb85c;
+  background-image: url('img/trigger/accept.png');
+}
+.rtn .error {
+  background-color: #d9534f;
+  background-image: url('img/trigger/error.png');
+}
+.rtn .xs-load {
+  height: 16px;
+  width: 16px;
+  background-image: url('img/trigger/loader.gif');
+  background-repeat: no-repeat;
+  transform: translateY(30%);
+  margin: 0 5px;
+}
+/*[HELPERS] - content*/
+.round {
+  border-radius: 50% !important;
+}
+.centered {
+  margin: 0 auto;
+  width: 80%;
+  float: none;
+}
+/*[HELPERS] - Others*/
+.fontzero {
+  font-size: 0px !important;
+}
+/*[SOCIAL-BUTTON]*/
+.fb-small {
+  padding: 0 8px !important;
+  background: url('img/social/fb-xs-off.png') no-repeat center !important;
+}
+.fb-small:hover {
+  -webkit-transition: background 0.7s;
+  -moz-transition: background 0.7s;
+  -o-transition: background 0.7s;
+  -ms-transition: background 0.7s;
+  transition: background 0.7s;
+  background: url('img/social/fb-xs-on.png') no-repeat center !important;
+}
+.tw-small {
+  padding: 0 8px !important;
+  background: url('img/social/tw-xs-off.png') no-repeat center !important;
+}
+.tw-small:hover {
+  -webkit-transition: background 0.7s;
+  -moz-transition: background 0.7s;
+  -o-transition: background 0.7s;
+  -ms-transition: background 0.7s;
+  transition: background 0.7s;
+  background: url('img/social/tw-xs-on.png') no-repeat center !important;
+}
+.ins-small {
+  padding: 0 8px !important;
+  background: url('img/social/ins-xs-off.png') no-repeat center !important;
+}
+.ins-small:hover {
+  -webkit-transition: background 0.7s;
+  -moz-transition: background 0.7s;
+  -o-transition: background 0.7s;
+  -ms-transition: background 0.7s;
+  transition: background 0.7s;
+  background: url('img/social/ins-xs-on.png') no-repeat center !important;
+}
