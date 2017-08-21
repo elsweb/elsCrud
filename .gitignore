@@ -4,3 +4,5 @@ _cdn/boot/boot\.less
 *.less
 
 _cdn/boot/session/
+
+index-old\.php
