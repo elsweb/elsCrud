@@ -1,40 +1,61 @@
 $(function(){
 
 	var rtn = $('.rtn');
-	var form  = $('form[name="registerform"]');
 	var btn   = $('button[name="submit"]');
-	var path  = 'themes/rgcontact/php/action.php?run=register';
+	var path  = 'themes/rgcontact/php/action.php';
 
 	btn.attr("type","submit");
 	
+	/*DEFAULT ajax Load*/
 	function debugjs(datas){
 		rtn.empty().html('<pre>'+datas+'</pre>');
 	}
-	
-	function successjs(datas){		
-		rtn.empty().css('display','block');
-		//rtn.empty().html('<pre>'+datas+'</pre>');
-		rtn.empty().html("<div class='trigger success'><span>"+datas+"</span></div>");
+	function successjs(datas){
+		if(datas.jrtn){
+			rtn.queue(function(){$(this).fadeOut('slow').dequeue();});
+			rtn.queue(function(){$(this).empty().css('display','block').dequeue();});
+			rtn.queue(function(){
+				$(this).fadeOut(function(){
+					$(this).html("<div class='trigger success'><span>O registro <strong>"+datas.nome+"</strong> foi efetuado com sucesso.</span></div>").fadeIn(1500);
+				}).dequeue();	
+				rtn.queue(function(){$(this).fadeOut(2000).dequeue();});		
+			});
+		}else{
+			rtn.queue(function(){$(this).fadeOut('slow').dequeue();});
+			rtn.queue(function(){$(this).empty().css('display','block').dequeue();});
+			rtn.queue(function(){
+				$(this).fadeOut(function(){
+					$(this).html("<div class='trigger error'><span>Preencha os campos obrigatórios.</span></div>").fadeIn(1500);
+				}).dequeue();
+				rtn.queue(function(){$(this).fadeOut(2000).dequeue();});			
+			});
+		}
 	}
 	function errorjs(){
-		rtn.empty().html('<h1>Erro ao Enviar</h1>');
+		rtn.empty().css('display','block');
+		rtn.empty().html("<div class='trigger info'><span>Erro no sistema, contacte o administrador.</span></div>");
 	}
 	function loadjs(){
 		rtn.empty().css('display','inline-block');
 		rtn.empty().html("<div class='xs-load'></div>");
 	}
+	$.ajaxSetup({
+		type : 'POST',		
+		url  : path,
+		dataType: 'json',
+		beforeSend : loadjs,
+		success : successjs,
+		error : errorjs
+	});
 
-	
-
+	/*REGISTER - client*/
+	var form  = $('form[name="registerform"]');
 	form.submit(function(){
-		var dados = form.serialize()
+		var run = "&run=register";
+		var sdados = form.serialize();
+		var dados = sdados + run;
 		$.ajax({
-			type : 'POST',
-			url  : path,
-			data : dados,
-			beforeSend : loadjs,
-			success : successjs,
-			error : errorjs
+			data : dados
 		});
 		return false;
 	});
