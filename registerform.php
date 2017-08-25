@@ -15,6 +15,7 @@ header("Pragma: no-cache");
 	<link rel="stylesheet" href="<?=HOME?>/_cdn/boot/boot.css"/>
 	<style type="text/css">
 		form {margin-top: 100px;}
+		.warning{border: solid 1px red;}
 	</style>
 </head>
 <body>
@@ -24,10 +25,10 @@ header("Pragma: no-cache");
 				<form method="post" name="registerform">
 					<div class="form-group">
 						<label for="">Nome</label>
-						<input type="text" name="txt_nome" class="form-control">
+						<input type="text" name="txt_nome" class="form-control require">
 
 						<label for="">E-mail</label>
-						<input type="mail" name="txt_email" class="form-control">
+						<input type="mail" name="txt_email" class="form-control require">
 					</div>
 					<div class="form-group">
 						<button type="button" name="submit" class="btn btn-default">Cadastrar</button>
@@ -38,6 +39,7 @@ header("Pragma: no-cache");
 		</div>
 	</div>
 	<script type="text/javascript" src="<?=HOME?>/_cdn/jquery.js"></script>
+	<script type="text/javascript" src="<?=HOME?>/_cdn/corejs/hp.string.js"></script><!--[CORE-js]elsWeb Freelancer-->
 	<script type="text/javascript" src="<?=HOME?>/themes/rgcontact/js/action.js"></script>
 </body>
 </html>
