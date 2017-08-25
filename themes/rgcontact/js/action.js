@@ -1,8 +1,8 @@
 $(function(){
-
 	var rtn = $('.rtn');
 	var btn   = $('button[name="submit"]');
 	var path  = 'themes/rgcontact/php/action.php';
+	var require = $('.require');
 
 	btn.attr("type","submit");
 	
@@ -59,4 +59,14 @@ $(function(){
 		});
 		return false;
 	});
+	require.blur(function () {
+		if ($(this).val().length === 0 ) {
+			$(this).addClass('warning');
+			console.log(upCaseWord($(this).attr('name'),4));
+		}else{
+			$(this).removeClass('warning');
+		}
+	});
+	
 });
+//$(this).replaceWith('<input type="text" name="txt_nome" class="form-control require warning"><span>Campo Obrígatório</span>');
