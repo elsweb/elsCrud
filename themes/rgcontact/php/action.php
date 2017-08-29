@@ -1,5 +1,5 @@
 <?php
-//sleep(2);
+sleep(2);
 require_once('../../../_app/Config.inc.php');
 require_once('../../../_app/Conn/Conn.class.php');
 require_once('../../../_app/interface/EntidadeInterface.class.php');
@@ -24,14 +24,17 @@ switch($run){
 		$Register = $ServiceDb->Create();
 
 		if($Register):
-			$dados['jrtn'] = true;	
+			$dados['rtnjs'] = true;	
 		unset($Conn);
 		unset($Client);
 		unset($ServiceDb);
 		endif;
 		else:
-			$dados['jrtn'] = false;
+			$dados['rtnjs'] = false;
 		endif;
 		echo json_encode($dados);
+		break;
+		case 'listed':
+
 		break;
 	}
