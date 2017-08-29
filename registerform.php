@@ -1,15 +1,11 @@
 <?php 
 require_once('_app/Config.inc.php');
-header("Expires: Tue, 01 Jan 2000 00:00:00 GMT");
-header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
-header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
-header("Cache-Control: post-check=0, pre-check=0", false);
-header("Pragma: no-cache");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
+	<meta name="theme" content="<?=HOME?>/themes/<?=THEME?>">
 	<title>Formulário de Registros</title>
 	<link rel="stylesheet" href="<?=HOME?>/_cdn/bootstrap/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="<?=HOME?>/_cdn/boot/boot.css"/>
@@ -25,10 +21,9 @@ header("Pragma: no-cache");
 				<form method="post" name="registerform">
 					<div class="form-group">
 						<label for="">Nome</label>
-						<input type="text" name="txt_nome" class="form-control require">
-
+						<input type="text" name="txt_nome" class="form-control require" required>
 						<label for="">E-mail</label>
-						<input type="mail" name="txt_email" class="form-control require">
+						<input type="email" name="txt_email" class="form-control require" required>
 					</div>
 					<div class="form-group">
 						<button type="button" name="submit" class="btn btn-default">Cadastrar</button>

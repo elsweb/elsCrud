@@ -3,7 +3,7 @@
 <html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
-	<title>Register Lister</title>
+	<title>Register Listed</title>
 	<link rel="stylesheet" href="<?=HOME?>/_cdn/bootstrap/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="<?=HOME?>/_cdn/boot/boot.css"/>
 </head>
@@ -30,5 +30,8 @@
 			</table>
 		</div>
 	</div>
+	<script type="text/javascript" src="<?=HOME?>/_cdn/jquery.js"></script>
+	<script type="text/javascript" src="<?=HOME?>/_cdn/corejs/hp.string.js"></script><!--[CORE-js]elsWeb Freelancer-->
+	<script type="text/javascript" src="<?=HOME?>/themes/rgcontact/js/action.js"></script>
 </body>
 </html>
