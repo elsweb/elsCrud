@@ -1,10 +1,8 @@
 <?php
 sleep(2);
 require_once('../../../_app/Config.inc.php');
-require_once('../../../_app/Conn/Conn.class.php');
-require_once('../../../_app/interface/EntidadeInterface.class.php');
+require_once('../../../_app/Conn/Create.class.php');
 require_once('../../../_app/class/Client.class.php');
-require_once('../../../_app/sys/ServiceDb.class.php');
 
 extract(filter_input_array(INPUT_POST,FILTER_DEFAULT));
 
@@ -15,22 +13,23 @@ switch($run){
 		$dados['email'] = $txt_email;
 		
 		if(!in_array('',$dados)):
-			$Conn = new Conn();
-		$Conexao = $Conn->getConn();
-		$Client = new Client();
-		$ServiceDb = new ServiceDb($Conexao, $Client);
-		$Client->setNameClient($dados['nome'])
-		->setEmailClient($dados['email']);
-		$Register = $ServiceDb->Create();
+		/*OBJECT class*/
+		$Client = new Client;
+		$Client->setNameClient($dados['nome']);
+		$Client->setEmailClient($dados['email']);
+		
+		$Create = new Create($Client);
+		$Register = $Create->Create();
 
 		if($Register):
-			$dados['rtnjs'] = true;	
-		unset($Conn);
-		unset($Client);
-		unset($ServiceDb);
+			$dados['rtnjs'] = true;
+			$dados['db'] = $Register;	
+			unset($Client);
+			unset($Create);
 		endif;
 		else:
 			$dados['rtnjs'] = false;
+			$dados['db'] = $Register;
 		endif;
 		echo json_encode($dados);
 		break;
