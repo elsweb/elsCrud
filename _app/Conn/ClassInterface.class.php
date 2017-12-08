@@ -1,5 +1,6 @@
 <?php
-interface EntidadeInterface{
+
+interface ClassInterface{
 	public function getId();
 	public function setId($id);
 

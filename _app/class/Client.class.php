@@ -1,6 +1,6 @@
 <?php
 
-class Client implements EntidadeInterface {
+class Client implements ClassInterface {
 
 	
 	private $tableClient = "clientes";
