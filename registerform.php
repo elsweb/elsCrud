@@ -1,6 +1,4 @@
-<?php 
-require_once('_app/Config.inc.php');
-?>
+<?php require_once('_app/Config.inc.php');?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -21,13 +19,14 @@ require_once('_app/Config.inc.php');
 				<form method="post" name="registerform">
 					<div class="form-group">
 						<label for="">Nome</label>
-						<input type="text" name="txt_nome" class="form-control require" required>
+						<input type="text" name="txt_nome" class="form-control require">
 						<label for="">E-mail</label>
-						<input type="email" name="txt_email" class="form-control require" required>
+						<input type="email" name="txt_email" class="form-control require">
 					</div>
 					<div class="form-group">
 						<button type="button" name="submit" class="btn btn-default">Cadastrar</button>
-						<div class="rtn"></div>
+						<div class="load-ajax"></div>
+						<div class="msg-ajax"></div>
 					</div>
 				</form>				
 			</div>

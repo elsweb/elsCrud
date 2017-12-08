@@ -76,7 +76,7 @@ ul {
   max-width: 1200px !important;
 }
 /*[HELPERS] - trigger*/
-.rtn .trigger {
+.msg-ajax .trigger {
   color: #FFFFFF;
   margin: 5px 0;
   padding: 15px 10px 15px 50px;
@@ -87,19 +87,19 @@ ul {
   -moz-box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.5);
   box-shadow: 0px 2px 3px 2px rgba(0, 0, 0, 0.5);
 }
-.rtn .info {
+.msg-ajax .info {
   background-color: #5bc0de;
   background-image: url('img/trigger/info.png');
 }
-.rtn .success {
+.msg-ajax .success {
   background-color: #5cb85c;
   background-image: url('img/trigger/accept.png');
 }
-.rtn .error {
+.msg-ajax .error {
   background-color: #d9534f;
   background-image: url('img/trigger/error.png');
 }
-.rtn .xs-load {
+.load-ajax .xs-load {
   height: 16px;
   width: 16px;
   background-image: url('img/trigger/loader.gif');

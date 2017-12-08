@@ -17,23 +17,16 @@ switch($run){
 		$Client = new Client;
 		$Client->setNameClient($dados['nome']);
 		$Client->setEmailClient($dados['email']);
-		
 		$Create = new Create($Client);
 		$Register = $Create->Create();
-
-		if($Register):
-			$dados['rtnjs'] = true;
-			$dados['db'] = $Register;	
-			unset($Client);
-			unset($Create);
-		endif;
-		else:
-			$dados['rtnjs'] = false;
-			$dados['db'] = $Register;
-		endif;
+			if($Register):
+				unset($Client);
+				unset($Create);
+				$dados['rtnjs'] = true;
+			endif;
+			else:
+				$dados['rtnjs'] = false;
+			endif;
 		echo json_encode($dados);
-		break;
-		case 'listed':
-
 		break;
 	}
