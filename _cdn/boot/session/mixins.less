@@ -1,0 +1,15 @@
+//BACKGROUND
+
+//Path Files
+.bg-path (@path:'',@aling:center){
+	background: url(@path) no-repeat @aling !important; 	
+}
+
+//Transition Effects
+.bg-transition (@seg: 1s) {
+	-webkit-transition: background @seg;
+	-moz-transition: background @seg;
+	-o-transition: background @seg;
+	-ms-transition: background @seg;
+	transition: background @seg;
+}
