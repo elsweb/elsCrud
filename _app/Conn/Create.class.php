@@ -5,9 +5,6 @@ class Create extends Conn {
 
 	private $Connect = null;
 	private $Entity;
-	private $Table;
-	private $Query;
-	private $Return;
 
 	public function __construct(ClassInterface $entity){
 		$this->Entity = $entity;
