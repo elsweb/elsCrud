@@ -81,6 +81,23 @@ $(document).ready(function(){
  	   return false;
  	
  	});
+
+ 	/*	[READ] - Client*/
+ 	var loadclient = $('.loadclient');
+ 	var tableclient = $('.client-ajax');
+ 	var moreclient = $('.moreclient');
+ 	tableclient.empty();
+ 	$.ajax({
+ 		url : path,
+ 		type : 'POST',
+ 		data :"run=readAll&offset=0&limit=2",
+ 		beforeSend: '',
+ 		error:'',
+ 		success: function(data){
+ 			tableclient.append(data);
+ 			console.log(data);
+ 		}
+ 	});
 	/*
 		[CHECKOUT field]
 		Quando sair do campo em foco e o mesmo permanecer vazio,

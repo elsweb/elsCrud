@@ -3,9 +3,13 @@
 <html lang="pt-br">
 <head>
 	<meta charset="UTF-8">
+	<meta name="theme" content="<?=HOME?>/themes/<?=THEME?>">
 	<title>Register Listed</title>
 	<link rel="stylesheet" href="<?=HOME?>/_cdn/bootstrap/css/bootstrap.min.css"/>
 	<link rel="stylesheet" href="<?=HOME?>/_cdn/boot/boot.css"/>
+	<style type="text/css">
+		.moreclient{display: none;}
+	</style>
 </head>
 <body>
 	<div class="sm-content centered">
@@ -17,18 +21,11 @@
 						<th>E-mail</th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<td>Emanuel</td>
-						<td>teste@teste.com.br</td>
-					</tr>
-					<tr>
-						<td>Aline</td>
-						<td>aline@teste.com.br</td>
-					</tr>					
-				</tbody>
+				<tbody class="client-ajax"></tbody>
 			</table>
 		</div>
+		<button class="btn btn-info moreclient">Carregar Mais</button>
+		<div class="loadclient">Aguarde, obtendo usuários</div>
 	</div>
 	<script type="text/javascript" src="<?=HOME?>/_cdn/jquery.js"></script>
 	<script type="text/javascript" src="<?=HOME?>/_cdn/corejs/hp.string.js"></script><!--[CORE-js]elsWeb Freelancer-->
