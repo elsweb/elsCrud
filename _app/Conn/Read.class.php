@@ -34,8 +34,7 @@ class Read extends Conn {
 			endif;
 		$conn = $this->setConnect($this->getConn()); //Connection
 		$stmt = $conn->query($this->Query); //Execute Query
-		$this->Return = $stmt->fetchAll(PDO::FETCH_ASSOC); // Data Return
-		
+		return $stmt->fetchAll(PDO::FETCH_ASSOC); // Data Return
 	}
 	/**
 	*<b>FindOut</b>
