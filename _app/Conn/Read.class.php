@@ -20,17 +20,18 @@ class Read extends Conn {
 	*@param type string field, use "," for separate indexes
 	*@param type string query, for Clauses	
 	*/
-	public function Read($field = null,$query = null){
+	public function Read($field = null, $query = null, $pag = array()){
+		$pag = (!is_null($pag)) ?  'LIMIT '. $pag['offset'].', '.$pag['limit']: null;
 		if(!is_null($field)):
 			if(is_array($field)):
 				$field = implode("," , $field);
-			$this->Query = "SELECT {$field} FROM `{$this->Table}` {$query}";
+				$this->Query = "SELECT {$field} FROM `{$this->Table}` {$query} {$pag}";
 			else:
 				$field = $field;
-			$this->Query = "SELECT {$field} FROM `{$this->Table}` {$query}";
+				$this->Query = "SELECT {$field} FROM `{$this->Table}` {$query} {$pag}";
 			endif;
 			else:
-				$this->Query = "SELECT * FROM `{$this->Table}` {$query}";
+				$this->Query = "SELECT * FROM `{$this->Table}` {$query} {$pag}";
 			endif;
 		$conn = $this->setConnect($this->getConn()); //Connection
 		$stmt = $conn->query($this->Query); //Execute Query
