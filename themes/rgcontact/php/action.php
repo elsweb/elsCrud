@@ -32,12 +32,17 @@ switch($run){
 	break;
 	case 'readAll':
 		$Read = new Read('clientes');
-		$Client = $Read->Read();
-		foreach ($Client as $dados) {
-			echo '<tr>';
-				echo'<td>'.$dados['nome'].'</td>';
-				echo'<td>'.$dados['email'].'</td>';
-			echo '</tr>';
+		$pag = array('offset' => $offset, 'limit'  => $limit);
+		$Client = $Read->Read(null,null, $pag);
+		if($Client){
+			foreach ($Client as $dados) {
+				echo '<tr>';
+					echo'<td>'.$dados['nome'].'</td>';
+					echo'<td>'.$dados['email'].'</td>';
+				echo '</tr>';
+			}
+		}else{
+			echo 'empty';
 		}
 	break;
 	default : echo 'not found action';

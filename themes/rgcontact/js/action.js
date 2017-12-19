@@ -87,17 +87,37 @@ $(document).ready(function(){
  	var tableclient = $('.client-ajax');
  	var moreclient = $('.moreclient');
  	tableclient.empty();
- 	$.ajax({
- 		url : path,
- 		type : 'POST',
- 		data :"run=readAll&offset=0&limit=2",
- 		beforeSend: '',
- 		error:'',
- 		success: function(data){
- 			tableclient.append(data);
- 			console.log(data);
- 		}
+ 	
+ 	function loadClients(data){
+	 	$.ajax({
+	 		url : path,
+	 		type : 'POST',
+	 		data :data,
+	 		beforeSend: '',
+	 		error:'',
+	 		success: function(data){
+	 			if(data != 'empty'){
+	 				tableclient.append(data);
+	 				loadclient.delay(300).fadeOut('slow');
+	 				moreclient.delay(1000).fadeIn('slow');
+				}else{
+					moreclient.text('Não existe mais Clientes, Carregar Página').click(function(){
+						location.reload();
+					});
+					loadclient.delay(300).fadeOut('slow');
+				}
+	 			console.log(data);
+	 		}
+	 	});
+ 	}
+ 	loadClients("run=readAll&offset=0&limit=1");
+ 	var offset = 1;
+ 	moreclient.click(function(){
+ 		loadclient.fadeIn('fast');
+ 		loadClients("run=readAll&offset="+offset+"&limit=1");
+ 		offset += 1;
  	});
+	
 	/*
 		[CHECKOUT field]
 		Quando sair do campo em foco e o mesmo permanecer vazio,
