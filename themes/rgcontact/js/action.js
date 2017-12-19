@@ -110,14 +110,33 @@ $(document).ready(function(){
 	 		}
 	 	});
  	}
- 	loadClients("run=readAll&offset=0&limit=1");
- 	var offset = 1;
+ 	loadClients("run=readAll&offset=0&limit=3");
+ 	var offset = 3;
  	moreclient.click(function(){
  		loadclient.fadeIn('fast');
- 		loadClients("run=readAll&offset="+offset+"&limit=1");
- 		offset += 1;
+ 		loadClients("run=readAll&offset="+offset+"&limit=3");
+ 		offset += 3;
  	});
-	
+
+ 	/*	[DELETE] - Client*/
+ 	tableclient.on('click','.delclient',function(){
+ 		var id = $(this).attr('id');
+ 		var data = "run=delete&client_id="+id;
+ 		var bg = $('tr[class='+id+']');
+ 		bg.css('background','red');
+ 		$.ajax({
+ 			url : path,
+ 			type : 'POST',
+ 			data : data,
+ 			beforeSend:'',
+ 			error:'',
+ 			success:function(data){
+ 				bg.fadeOut('slow');
+ 				//loadClients("run=readAll&offset="+offset+"&limit=1");
+ 				console.log(data);
+ 			}
+ 		});
+ 	});
 	/*
 		[CHECKOUT field]
 		Quando sair do campo em foco e o mesmo permanecer vazio,

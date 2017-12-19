@@ -19,6 +19,7 @@
 					<tr>
 						<th>Nome</th>
 						<th>E-mail</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody class="client-ajax"></tbody>
